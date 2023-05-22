@@ -3,6 +3,7 @@ name: Send Pair programming message every Monday
 on:
   schedule:
     - cron: '0 9 * * 1'
+  workflow_dispatch:
 
 jobs:
   run-code:
