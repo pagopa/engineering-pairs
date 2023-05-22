@@ -1,5 +1,5 @@
 import { WebClient } from "@slack/web-api";
-import { generatePairs } from "./distribute";
+import { generateIncrementalPairs, generateRandomPairs } from "./distribute";
 
 // users excluded from the pairs
 const excludedIds = new Set(
@@ -90,8 +90,17 @@ async function assignPairs(
     return;
   }
 
-  const pairs = generatePairs(channelMembers);
-  const nPairs = Object.keys(pairs).length;
+  // eslint-disable-next-line functional/no-let
+  let pairs = generateIncrementalPairs(channelMembers);
+  // eslint-disable-next-line functional/no-let
+  let nPairs = Object.keys(pairs).length;
+
+  // when the period is a multiple of the number of members
+  // we need to generate random pairs
+  if (nPairs < 1) {
+    pairs = generateRandomPairs(channelMembers);
+    nPairs = Object.keys(pairs).length;
+  }
 
   if (nPairs < 1) {
     // eslint-disable-next-line no-console

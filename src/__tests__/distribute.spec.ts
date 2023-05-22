@@ -1,13 +1,18 @@
-import { generatePairs, getDayNumber, getPeriod } from "../distribute";
+import {
+  generateIncrementalPairs,
+  getDayNumber,
+  getPairs,
+  getPeriod,
+} from "../distribute";
 import { describe, it, expect } from "vitest";
 
-describe("generatePairs", () => {
+describe("generateIncrementalPairs", () => {
   it("should generate pairs with correct day value", () => {
     const stringList = ["a", "b", "c", "d"];
     const day = 2;
     const expectedPairs = { a: "c", b: "d" };
 
-    const result = generatePairs(stringList, day);
+    const result = generateIncrementalPairs(stringList, day);
 
     expect(result).toEqual(expectedPairs);
   });
@@ -41,5 +46,43 @@ describe("getPeriod", () => {
   it("should return the number of periods since 1970", () => {
     const result = getPeriod(7);
     expect(result).toBe(2785);
+  });
+});
+
+describe("getPairs", () => {
+  it("should return an empty object for an empty input array", () => {
+    const input: string[] = [];
+    const expected: Record<string, string> = {};
+
+    const result = getPairs(input);
+
+    expect(result).toEqual(expected);
+  });
+
+  it("should return an empty object for an input array with one element", () => {
+    const input = ["a"];
+    const expected: Record<string, string> = {};
+
+    const result = getPairs(input);
+
+    expect(result).toEqual(expected);
+  });
+
+  it("should return an object of pairs for an input array with multiple elements", () => {
+    const input = ["a", "b", "c", "d"];
+    const expected = { a: "b", c: "d" };
+
+    const result = getPairs(input);
+
+    expect(result).toEqual(expected);
+  });
+
+  it("should return an object of pairs for an input array with an odd number of elements", () => {
+    const input = ["a", "b", "c", "d", "e"];
+    const expected = { a: "b", c: "d" };
+
+    const result = getPairs(input);
+
+    expect(result).toEqual(expected);
   });
 });
