@@ -1,0 +1,23 @@
+name: Send Pair programming message every Monday
+
+on:
+  schedule:
+    - cron: '0 9 * * 1'
+
+jobs:
+  run-code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: yarn install
+      - name: Build TypeScript code
+        run: yarn build
+      - name: Run code
+        run: node dist/index.js
+        env:
+          SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+          SLACK_CHANNEL: ${{ secrets.SLACK_CHANNEL }}
+          EXCLUDE_IDS: ${{ secrets.EXCLUDE_IDS }}
+          TENOR_TOKEN: ${{ secrets.TENOR_TOKEN }}
