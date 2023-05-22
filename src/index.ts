@@ -1,8 +1,5 @@
-import * as dotenv from "dotenv";
 import { WebClient } from "@slack/web-api";
 import { generatePairs } from "./distribute";
-
-dotenv.config();
 
 // users excluded from the pairs
 const excludedIds = new Set(

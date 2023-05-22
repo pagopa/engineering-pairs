@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: 18
           cache: 'yarn'
-      - run: yarn install --frozen-lockfile # optional, --immutable
+      - run: yarn install --immutable
       - name: Build TypeScript code
         run: yarn build
       - name: Run code
