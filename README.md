@@ -1,7 +1,7 @@
 # Pair Generator
 
-This is a GitHub Action that generates pairs of members from the `#area_engineering`
-channel every Monday and posts them to a designated channel. 
+This repository contains a GitHub Action that generates pairs of members from
+a specified Slack channel every Monday, and shares them to the channel. 
 The purpose of this action is to encourage collaboration and knowledge
 sharing among engineering team members.
 
@@ -14,7 +14,6 @@ To use this action, simply include it in your GitHub Actions workflow and config
 - `EXCLUDE_IDS`: A comma-separated list of usernames to exclude from the pairing process.
 - `TENOR_TOKEN`: The Tenor API token to use for generating GIFs.
 
-By default, the action will generate pairs from all members in the `#area_engineering` channel. 
-
-If you want to exclude certain members from the pairing process, you can add their user IDs
+By default, the action will generate pairs from all members in the specified channel. 
+If you want to exclude certain members from the pairing process, you can add their user's IDs
 as a comma separated list (do not use spaces) to the `EXCLUDE_IDS` environment variable.
