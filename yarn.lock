@@ -298,6 +298,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@pagopa/engineering-pairs@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@pagopa/engineering-pairs@workspace:."
+  dependencies:
+    "@pagopa/eslint-config": ^3.0.0
+    "@slack/web-api": ^6.8.1
+    "@types/node": ^20.2.1
+    dotenv: ^16.0.3
+    eslint: ^8.41.0
+    prettier: ^2.8.8
+    typescript: ^5.0.4
+    vitest: ^0.31.1
+  languageName: unknown
+  linkType: soft
+
 "@pagopa/eslint-config@npm:^3.0.0":
   version: 3.0.0
   resolution: "@pagopa/eslint-config@npm:3.0.0"
@@ -816,21 +831,6 @@ __metadata:
   checksum: 7b78c451df768adba04e2d02e63e2d0bf3b07adcd6e42b4cf665cb7ce899bedd344c69a1dcbce355b5f972d597b25aaa1c1742b52cffd9caccb22f348114f6be
   languageName: node
   linkType: hard
-
-"autopair@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "autopair@workspace:."
-  dependencies:
-    "@pagopa/eslint-config": ^3.0.0
-    "@slack/web-api": ^6.8.1
-    "@types/node": ^20.2.1
-    dotenv: ^16.0.3
-    eslint: ^8.41.0
-    prettier: ^2.8.8
-    typescript: ^5.0.4
-    vitest: ^0.31.1
-  languageName: unknown
-  linkType: soft
 
 "available-typed-arrays@npm:^1.0.5":
   version: 1.0.5
