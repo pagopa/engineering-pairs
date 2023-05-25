@@ -30,7 +30,7 @@ if (!slackClient) {
 }
 
 const headline = (dateString: string) =>
-  `:wave: here the weekly pairs for the week of ${dateString}.\nPlease reach out to your pair and schedule a time to meet.`;
+  `:wave: here the weekly pairs for the week of ${dateString}.\nPlease reach out to your pair and schedule a time to meet.\n`;
 
 const getGif = async () => {
   const res = await fetch(
@@ -120,6 +120,13 @@ async function assignPairs(
         type: "image",
         image_url: gif.url,
         alt_text: gif.description,
+      },
+      {
+        type: "section",
+        text: {
+          text: "(gif via tenor.com)",
+          type: "mrkdwn",
+        },
       },
       {
         type: "section",
