@@ -1,7 +1,7 @@
 # Pair Generator
 
 This repository contains a GitHub Action that generates pairs of members from
-a specified Slack channel every Monday, and shares them to the channel. 
+a specified Slack channel every two weeks on Mondays, and shares them to the channel. 
 The purpose of this action is to encourage collaboration and knowledge
 sharing among engineering team members.
 
