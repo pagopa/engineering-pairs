@@ -30,7 +30,7 @@ if (!slackClient) {
 }
 
 const headline = (dateString: string) =>
-  `:wave: here the weekly pairs for the week of ${dateString}. Please reach out to your pair and schedule a time to meet.`;
+  `:wave: here the weekly pairs for the week of ${dateString}.\nPlease reach out to your pair and schedule a time to meet.`;
 
 const getGif = async () => {
   const res = await fetch(
