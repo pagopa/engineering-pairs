@@ -1,8 +1,8 @@
-name: Send Pair programming message every Monday
+name: Send Pair programming message every two weeks
 
 on:
   schedule:
-    - cron: '0 9 * * 1'
+    - cron: '0 9 * * 1/14'
   workflow_dispatch:
 
 jobs:
