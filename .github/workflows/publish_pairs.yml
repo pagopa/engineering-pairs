@@ -2,7 +2,7 @@ name: Send Pair programming message every two weeks
 
 on:
   schedule:
-    - cron: '0 */336 * * 1'
+    - cron: '0 */336 * * *'
   workflow_dispatch:
 
 jobs:
