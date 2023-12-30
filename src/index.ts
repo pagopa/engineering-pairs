@@ -1,5 +1,5 @@
 import { WebClient } from "@slack/web-api";
-import { generateIncrementalPairs, generateRandomPairs } from "./distribute";
+import { generateRandomPairs, getPeriod } from "./distribute";
 
 // users excluded from the pairs
 const excludedIds = new Set(
@@ -90,17 +90,16 @@ async function assignPairs(
     return;
   }
 
-  // eslint-disable-next-line functional/no-let
-  let pairs = generateIncrementalPairs(channelMembers);
-  // eslint-disable-next-line functional/no-let
-  let nPairs = Object.keys(pairs).length;
-
-  // when the period is a multiple of the number of members
-  // we need to generate random pairs
-  if (nPairs < 1) {
-    pairs = generateRandomPairs(channelMembers);
-    nPairs = Object.keys(pairs).length;
+  // when the period is even we return
+  // (to avoid having pairs every week)
+  if (getPeriod() % 2 === 0) {
+    // eslint-disable-next-line no-console
+    console.log("Period is even, not assigning pairs");
+    return;
   }
+
+  const pairs = generateRandomPairs(channelMembers);
+  const nPairs = Object.keys(pairs).length;
 
   if (nPairs < 1) {
     // eslint-disable-next-line no-console
